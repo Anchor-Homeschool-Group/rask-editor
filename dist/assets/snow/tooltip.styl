@@ -1,0 +1,75 @@
+tooltipMargin = 8px
+
+.ql-snow
+  .ql-tooltip
+    background-color: #fff
+    border: 1px solid borderColor
+    border-radius: 8px
+    box-shadow: 0 8px 24px shadowColor
+    color: textColor
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif
+    font-size: 13px
+    padding: 6px 8px
+    white-space: nowrap
+    &::before
+      content: "Visit URL:"
+      color: #6e6e73
+      line-height: 30px
+      margin-right: tooltipMargin
+    input[type=text]
+      display: none
+      border: 1px solid borderColor
+      border-radius: 5px
+      font-size: 13px
+      height: 30px
+      margin: 0
+      outline: none
+      padding: 4px 8px
+      width: 210px
+
+      &:focus
+        border-color: activeColor
+        box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12)
+
+    a.ql-preview
+      display: inline-block
+      max-width: 240px
+      overflow-x: hidden
+      text-overflow: ellipsis
+      vertical-align: top
+    a.ql-action::after
+      border-right: 1px solid borderColor
+      content: 'Edit'
+      margin-left: tooltipMargin*2
+      padding-right: tooltipMargin
+    a.ql-remove::before
+      content: 'Remove'
+      margin-left: tooltipMargin
+    a
+      color: activeColor
+      font-weight: 600
+      line-height: 30px
+      text-decoration: none
+  .ql-tooltip.ql-editing
+    a.ql-preview, a.ql-remove
+      display: none
+    input[type=text]
+      display: inline-block
+    a.ql-action::after
+      border-right: 0px
+      content: 'Save'
+      padding-right: 0px
+  .ql-tooltip[data-mode=link]::before
+    content: "Enter link:"
+  .ql-tooltip[data-mode=formula]::before
+    content: "Enter formula:"
+  .ql-tooltip[data-mode=video]::before
+    content: "Enter video:"
+
+@media (max-width: 520px)
+  .ql-snow .ql-tooltip
+    max-width: calc(100vw - 24px)
+    white-space: normal
+
+    input[type=text]
+      max-width: 58vw

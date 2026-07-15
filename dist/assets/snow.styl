@@ -1,0 +1,103 @@
+themeName = 'snow'
+activeColor = #0071e3
+borderColor = #d9d9de
+backgroundColor = #ffffff
+inactiveColor = #515154
+shadowColor = rgba(0, 0, 0, 0.10)
+textColor = #1d1d1f
+
+@import './core'
+@import './base'
+@import './snow/*'
+
+.ql-snow
+  a
+    color: activeColor
+    text-underline-offset: 2px
+
+  ::selection
+    background: rgba(0, 113, 227, 0.16)
+
+.ql-container.ql-snow
+  background: #fff
+  border: 1px solid borderColor
+  border-radius: 0 0 10px 10px
+  color: textColor
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif
+  font-size: 14px
+  -webkit-font-smoothing: antialiased
+
+  .ql-editor
+    line-height: 1.6
+    min-height: 240px
+    padding: 24px 26px 30px
+
+    h1, h2, h3, h4, h5, h6
+      color: #1d1d1f
+      font-weight: 600
+      letter-spacing: -0.015em
+      line-height: 1.28
+      margin-bottom: 0.3em
+      margin-top: 1em
+
+    h1:first-child, h2:first-child, h3:first-child,
+    h4:first-child, h5:first-child, h6:first-child
+      margin-top: 0
+
+    h1
+      font-size: 1.5em
+    h2
+      font-size: 1.3em
+    h3
+      font-size: 1.15em
+    h4
+      font-size: 1em
+    h5
+      font-size: 0.95em
+    h6
+      color: #6e6e73
+      font-size: 0.9em
+      letter-spacing: 0
+
+    p + p
+      margin-top: 0.65em
+
+    blockquote
+      border-left: 2px solid #c7c7cc
+      color: #6e6e73
+      margin: 1em 0
+      padding: 0.1em 0 0.1em 1em
+
+    code
+      background: #f5f5f7
+      border-radius: 4px
+      color: #1d1d1f
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace
+      padding: 0.16em 0.38em
+
+    .ql-code-block-container
+      background: #1d1d1f
+      border-radius: 7px
+      color: #f5f5f7
+      margin: 1em 0
+      padding: 12px 14px
+
+    img
+      border-radius: 8px
+
+  .ql-editor.ql-blank::before
+    color: #a1a1a6
+    font-style: normal
+    left: 26px
+    right: 26px
+
+  &.ql-disabled
+    background: #fafafa
+
+@media (max-width: 640px)
+  .ql-container.ql-snow
+    .ql-editor
+      padding: 20px 18px 24px
+    .ql-editor.ql-blank::before
+      left: 18px
+      right: 18px

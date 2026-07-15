@@ -1,0 +1,195 @@
+.ql-toolbar.ql-snow
+  align-items: center
+  background: #fff
+  border: 1px solid borderColor
+  border-radius: 10px 10px 0 0
+  box-sizing: border-box
+  display: flex
+  flex-wrap: wrap
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif
+  gap: 2px
+  min-height: 44px
+  padding: 6px 20px
+  -webkit-font-smoothing: antialiased
+
+  &:focus-within
+    border-color: #c7c7cc
+
+  button
+    border-radius: 5px
+    float: none
+    height: 30px
+    padding: 6px
+    transition: background-color 100ms ease, color 100ms ease
+    width: 30px
+
+    &:hover
+      background: #f5f5f7
+
+    &:focus-visible
+      background: #f5f5f7
+      outline: 2px solid rgba(0, 113, 227, 0.32)
+      outline-offset: 1px
+
+    &.ql-active
+      background: #f0f0f2
+
+  .ql-formats
+    align-items: center
+    display: inline-flex
+    gap: 0
+    margin-right: 4px
+
+    &:not(:last-child)::after
+      background: #e5e5ea
+      content: ''
+      height: 18px
+      margin-left: 5px
+      width: 1px
+
+  .ql-picker-label
+    border: 0
+    border-radius: 5px
+    transition: background-color 100ms ease
+
+    &:hover
+      background: #f5f5f7
+
+    &:focus-visible
+      outline: 2px solid rgba(0, 113, 227, 0.32)
+      outline-offset: 1px
+
+  .ql-picker-options
+    background: #fff
+    border: 1px solid borderColor
+    border-radius: 7px
+    box-shadow: 0 8px 24px shadowColor
+    margin-top: 5px !important
+    padding: 5px
+
+    .ql-picker-item
+      border-radius: 4px
+      padding-left: 8px
+      padding-right: 8px
+
+      &:hover, &.ql-selected
+        background: #f5f5f7
+
+  .ql-picker.ql-expanded
+    .ql-picker-label
+      background: #f5f5f7
+      color: textColor
+    .ql-picker-options
+      border-color: borderColor
+
+  .ql-picker.ql-header
+    width: 92px
+
+    .ql-picker-label:not([data-value])::before,
+    .ql-picker-item:not([data-value])::before
+      content: 'Paragraph'
+
+    .ql-picker-label::before
+      font-size: 13px
+      font-weight: 400
+
+    .ql-picker-item::before
+      font-size: 13px
+      font-weight: 400
+      letter-spacing: 0
+
+    .ql-picker-item[data-value='1']::before
+      font-size: 14px
+      font-weight: 600
+
+    .ql-picker-item[data-value='2']::before
+      font-size: 13.5px
+      font-weight: 600
+
+    .ql-picker-item[data-value='3']::before
+      font-size: 13px
+      font-weight: 600
+
+    .ql-picker-item[data-value='4']::before,
+    .ql-picker-item[data-value='5']::before,
+    .ql-picker-item[data-value='6']::before
+      color: #6e6e73
+      font-size: 12.5px
+      font-weight: 500
+
+  .ql-picker.ql-size
+    width: 82px
+
+    .ql-picker-label:not([data-value])::before,
+    .ql-picker-item:not([data-value])::before
+      content: 'Regular'
+
+    .ql-picker-label::before,
+    .ql-picker-item::before
+      font-size: 13px
+      font-weight: 400
+
+    .ql-picker-item[data-value='small']::before
+      color: #6e6e73
+      font-size: 12px
+
+    .ql-picker-item[data-value='large']::before
+      font-size: 14px
+      font-weight: 500
+
+    .ql-picker-item[data-value='huge']::before
+      font-size: 15px
+      font-weight: 600
+
+  .ql-color-picker
+    .ql-picker-item.ql-selected, .ql-picker-item:hover
+      border-color: #6e6e73
+      box-shadow: 0 0 0 1px #fff inset
+
+  .ql-toolbar-more
+    display: none
+
+.ql-toolbar.ql-snow + .ql-container.ql-snow
+  border-top: 0
+
+@media (max-width: 700px)
+  .ql-toolbar.ql-snow
+    gap: 1px
+    padding: 6px 12px
+    position: relative
+
+    &.ql-toolbar-measuring,
+    &.ql-toolbar-overflowing
+      padding-right: 48px
+
+    > .ql-toolbar-hidden
+      display: none
+
+    &.ql-toolbar-measuring > .ql-toolbar-hidden
+      display: inline-flex
+
+    &.ql-toolbar-overflowing .ql-toolbar-more
+      align-items: center
+      background: #fff
+      box-shadow: -8px 0 12px #fff
+      display: flex
+      justify-content: center
+      position: absolute
+      right: 8px
+      top: 6px
+      z-index: 3
+
+      &[aria-expanded='true']
+        background: #f0f0f2
+
+    > .ql-formats
+      flex: 0 0 auto
+
+    > .ql-toolbar-primary
+      order: -1
+
+    .ql-formats
+      margin-right: 2px
+
+      &:not(:last-child)::after
+        display: none
