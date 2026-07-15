@@ -2,7 +2,11 @@
   "name": "rask",
   "version": "2.0.3",
   "description": "Powerful, modern rich text editor based off of Quill made specifically for Anchor Homeschool Group.",
-  "main": "quill.js",
+  "main": "dist/quill.js",
+  "types": "dist/quill.d.ts",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "dependencies": {
     "eventemitter3": "^5.0.1",
@@ -13,11 +17,11 @@
   },
   "exports": {
     ".": {
-      "types": "./quill.d.ts",
-      "import": "./quill.js",
-      "default": "./quill.js"
+      "types": "./dist/quill.d.ts",
+      "import": "./dist/quill.js",
+      "default": "./dist/quill.js"
     },
-    "./snow.styl": "./assets/snow.styl"
+    "./snow.styl": "./dist/assets/snow.styl"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.9",
@@ -75,6 +79,7 @@
   ],
   "scripts": {
     "build": "./scripts/build production",
+    "prepare": "npm run build",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit --skipLibCheck",
