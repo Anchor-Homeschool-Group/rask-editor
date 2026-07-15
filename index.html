@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quill Test</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        padding: 32px;
+        font-family: system-ui, sans-serif;
+      }
+
+      #editor {
+        min-height: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="editor"></div>
+
+    <script type="module">
+      import Quill from '/src/quill.ts';
+      import '/src/assets/snow.styl';
+
+      const editor = document.querySelector('#editor');
+
+      if (!(editor instanceof HTMLElement)) {
+        throw new Error('Editor element not found');
+      }
+
+      const quill = new Quill(editor, {
+        modules: {
+          toolbar: [
+            [{ header: [1, 2, 3, 4, false] }],
+            [{ font: [] }, { size: ['small', false, 'large', 'huge'] }],
+
+            ['bold', 'italic', 'underline', 'strike'],
+
+            [{ color: [] }, { background: [] }],
+
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            [{ indent: '-1' }, { indent: '+1' }],
+
+            [{ align: [] }],
+            [{ direction: 'rtl' }],
+
+            ['blockquote'],
+            ['link'],
+
+            ['clean'],
+          ],
+          history: {
+            delay: 500,
+            maxStack: 200,
+            userOnly: true,
+          },
+        },
+
+        formats: [
+          'align',
+          'direction',
+          'indent',
+
+          'background',
+          'color',
+          'font',
+          'size',
+
+          'blockquote',
+          'header',
+          'list',
+
+          'bold',
+          'italic',
+          'link',
+          'script',
+          'strike',
+          'underline',
+
+          'image',
+          'video',
+        ],
+
+        placeholder: 'Start writing...',
+        theme: 'snow',
+      });
+
+      window.quill = quill;
+    </script>
+  </body>
+</html>
