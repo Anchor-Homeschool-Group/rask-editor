@@ -1,3 +1,3 @@
-# Quill
+# Rask
 
-This is the main package of Quill.
+Rask is a modified version of Quill built for Anchor.
