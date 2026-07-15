@@ -12,7 +12,8 @@
     "vite": "^8.1.4"
   },
   "exports": {
-    ".": "./src/quill.ts"  
+    ".": "./src/quill.ts",
+    "./snow": "./src/assets/snow.styl"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.9",
